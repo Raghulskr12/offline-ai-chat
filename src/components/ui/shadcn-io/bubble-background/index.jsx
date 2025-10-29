@@ -11,12 +11,12 @@ function BubbleBackground({
   interactive = false,
   transition = { stiffness: 100, damping: 20 },
   colors = {
-    first: '18,113,255',
-    second: '221,74,255',
-    third: '0,220,255',
-    fourth: '200,50,50',
-    fifth: '180,180,50',
-    sixth: '140,100,255',
+    first: '71,85,105',     // slate-600
+    second: '100,116,139',  // slate-500
+    third: '148,163,184',   // slate-400
+    fourth: '203,213,225',  // slate-300
+    fifth: '226,232,240',   // slate-200
+    sixth: '241,245,249',   // slate-100
   },
   ...props
 }) {
@@ -49,7 +49,7 @@ function BubbleBackground({
       ref={containerRef}
       data-slot="bubble-background"
       className={cn(
-        'fixed inset-0 overflow-hidden bg-gradient-to-br from-violet-900 to-blue-900',
+        'fixed inset-0 overflow-hidden bg-gradient-to-br from-gray-900 via-slate-800 to-zinc-900',
         className
       )}
       {...props}>
@@ -82,7 +82,7 @@ function BubbleBackground({
       </svg>
       <div className="absolute inset-0" style={{ filter: 'url(#goo) blur(40px)' }}>
         <motion.div
-          className="absolute rounded-full w-[80%] h-[80%] top-[10%] left-[10%] mix-blend-hard-light bg-[radial-gradient(circle_at_center,rgba(var(--first-color),0.8)_0%,rgba(var(--first-color),0)_50%)]"
+          className="absolute rounded-full w-[80%] h-[80%] top-[10%] left-[10%] mix-blend-soft-light bg-[radial-gradient(circle_at_center,rgba(var(--first-color),0.6)_0%,rgba(var(--first-color),0)_50%)]"
           animate={{ y: [-50, 50, -50] }}
           transition={{ duration: 30, ease: 'easeInOut', repeat: Infinity }} />
 
@@ -96,7 +96,7 @@ function BubbleBackground({
             repeatType: 'loop',
           }}>
           <div
-            className="rounded-full w-[80%] h-[80%] mix-blend-hard-light bg-[radial-gradient(circle_at_center,rgba(var(--second-color),0.8)_0%,rgba(var(--second-color),0)_50%)]" />
+            className="rounded-full w-[80%] h-[80%] mix-blend-soft-light bg-[radial-gradient(circle_at_center,rgba(var(--second-color),0.5)_0%,rgba(var(--second-color),0)_50%)]" />
         </motion.div>
 
         <motion.div
@@ -104,11 +104,11 @@ function BubbleBackground({
           animate={{ rotate: 360 }}
           transition={{ duration: 40, ease: 'linear', repeat: Infinity }}>
           <div
-            className="absolute rounded-full w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(var(--third-color),0.8)_0%,rgba(var(--third-color),0)_50%)] mix-blend-hard-light top-[calc(50%+200px)] left-[calc(50%-500px)]" />
+            className="absolute rounded-full w-[80%] h-[80%] bg-[radial-gradient(circle_at_center,rgba(var(--third-color),0.4)_0%,rgba(var(--third-color),0)_50%)] mix-blend-soft-light top-[calc(50%+200px)] left-[calc(50%-500px)]" />
         </motion.div>
 
         <motion.div
-          className="absolute rounded-full w-[80%] h-[80%] top-[10%] left-[10%] mix-blend-hard-light bg-[radial-gradient(circle_at_center,rgba(var(--fourth-color),0.8)_0%,rgba(var(--fourth-color),0)_50%)] opacity-70"
+          className="absolute rounded-full w-[80%] h-[80%] top-[10%] left-[10%] mix-blend-soft-light bg-[radial-gradient(circle_at_center,rgba(var(--fourth-color),0.3)_0%,rgba(var(--fourth-color),0)_50%)] opacity-60"
           animate={{ x: [-50, 50, -50] }}
           transition={{ duration: 40, ease: 'easeInOut', repeat: Infinity }} />
 
@@ -117,12 +117,12 @@ function BubbleBackground({
           animate={{ rotate: 360 }}
           transition={{ duration: 20, ease: 'linear', repeat: Infinity }}>
           <div
-            className="absolute rounded-full w-[160%] h-[160%] mix-blend-hard-light bg-[radial-gradient(circle_at_center,rgba(var(--fifth-color),0.8)_0%,rgba(var(--fifth-color),0)_50%)] top-[calc(50%-80%)] left-[calc(50%-80%)]" />
+            className="absolute rounded-full w-[160%] h-[160%] mix-blend-overlay bg-[radial-gradient(circle_at_center,rgba(var(--fifth-color),0.2)_0%,rgba(var(--fifth-color),0)_50%)] top-[calc(50%-80%)] left-[calc(50%-80%)]" />
         </motion.div>
 
         {interactive && (
           <motion.div
-            className="absolute rounded-full w-full h-full mix-blend-hard-light bg-[radial-gradient(circle_at_center,rgba(var(--sixth-color),0.8)_0%,rgba(var(--sixth-color),0)_50%)] opacity-70"
+            className="absolute rounded-full w-full h-full mix-blend-overlay bg-[radial-gradient(circle_at_center,rgba(var(--sixth-color),0.15)_0%,rgba(var(--sixth-color),0)_50%)] opacity-50"
             style={{
               x: springX,
               y: springY,
